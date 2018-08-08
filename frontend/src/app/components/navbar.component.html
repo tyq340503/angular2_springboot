@@ -1,0 +1,28 @@
+<div class="ui inverted fixed menu">
+    <div class="ui secondary pointing menu">
+        <a href="#" class="item">
+            <h2>home</h2>
+        </a>
+
+        <a href="#" class="item">
+            <h2>menu1</h2>
+        </a>
+        <a href="#" class="item">
+            <h2>menu2</h2>
+        </a>
+        <a href="#" class="item">
+            <h2>menu3</h2>
+        </a>
+    </div>
+    <div class="right menu">
+        <a *ngIf="!loginService.checkLogin()"  routerLink="/register" routerLinkActive="active" class="item">
+            <h2>register</h2>
+        </a>
+        <a routerLink="/login" routerLinkActive="active" class="item" (click)="onClick()">
+            <h2>{{loginService.checkLogin()? 'logout': 'login'}}</h2>
+        </a>
+        <a *ngIf="loginService.checkLogin()"  routerLink="/photo" routerLinkActive="active" class="item">
+            <h2>photo</h2>
+        </a>
+    </div>
+</div>
