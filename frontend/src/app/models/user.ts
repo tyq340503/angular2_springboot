@@ -12,4 +12,8 @@ export class User {
 
     private likedPhotoList: Photo[];
 
+    public getPhotoList(){
+        return this.photoList;
+    }
+
 }

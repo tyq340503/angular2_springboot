@@ -3,6 +3,7 @@ import { Photo } from '../models/photo';
 import { UserService } from '../service/user.service';
 import { PhotoService } from '../service/photo.service';
 import { LoginService } from '../service/login.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'photo',
@@ -10,7 +11,7 @@ import { LoginService } from '../service/login.service';
 })
 export class PhotoComponent {
   private photoList: Photo[];
-  private user: any;
+  private user: User;
 
   constructor(private userService: UserService,
     private photoService: PhotoService,
@@ -21,18 +22,18 @@ export class PhotoComponent {
     }
     this.userService.getUserName(localStorage.getItem('username')).subscribe(
       data => {
-        this.user = JSON.parse(JSON.stringify(data))._body;
+        this.user = JSON.parse(JSON.parse(JSON.stringify(data))._body);
         this.photoService.getPhotoListByUser(this.user).subscribe(
           data => {
-            this.photoList = JSON.parse(JSON.stringify(data));
+            this.photoList = this.user.getPhotoList();
           },
           error => {
-            console.log(error)
+            console.log(error);
           }
         )
       },
       error => {
-        console.log(error)
+        console.log(error);
       }
     )
   }
