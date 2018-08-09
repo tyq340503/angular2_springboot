@@ -12,4 +12,8 @@ export class Photo {
 
     private likes: number;
     private commentList: Comment[];
+
+    public setUser(user: User): User {
+        return this.user =user;
+    }
 }

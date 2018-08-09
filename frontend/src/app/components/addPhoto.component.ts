@@ -9,7 +9,7 @@ import { User } from '../models/user';
   templateUrl: './addPhoto.component.html'
 })
 export class AddPhotoComponent {
-  private addPhoto: Photo = new Photo();
+  private addPhoto = new Photo();
   private photoFlag: boolean = false;
   private user: User;
 
@@ -23,7 +23,7 @@ export class AddPhotoComponent {
       data => {
         
         this.user = JSON.parse(JSON.parse(JSON.stringify(data))._body);
-        this.addPhoto.user = this.user;
+        this.addPhoto.setUser(this.user);
         this.photoService.sendPhoto(this.addPhoto).subscribe(
           res => {
             this.photoFlag = true;
