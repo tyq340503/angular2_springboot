@@ -1,0 +1,20 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()" #addPhotoForm="ngForm">
+        <h2>add photo</h2>
+        <label for="email">photoname</label>
+        <div class="field">
+            <input type="text" name="username" [(ngModel)]="addPhoto.photoName" placeholder="photoname"  required />
+        </div>
+        <label for="email">description</label>
+        <div class="field">
+            <input type="text" name="password"  [(ngModel)]="addPhoto.description" placeholder="description" required />
+        </div>
+        <label for="email">upload file</label>
+        <div class="field">
+            <input type="file" name="password"  (change)="photoService.fileChangeEvent($event)" required />
+            <button type="submit" (click)="photoService.uploadPhoto()" class="ui button">upload</button>
+        </div>
+
+        <button type="submit" class="ui button">submit</button>
+    </form>
+</div>

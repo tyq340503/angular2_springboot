@@ -8,6 +8,7 @@ import { NavBarComponent } from './components/navbar.component';
 import { RegisterComponent } from './components/register.component';
 import { LoginComponent } from './components/login.component';
 import { PhotoComponent } from './components/photo.component';
+import { AddPhotoComponent } from './components/addPhoto.component';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -34,10 +35,14 @@ import { FormsModule } from '@angular/forms';
       {
         path: 'photo',
         component: PhotoComponent
+      },
+      {
+        path: 'addphoto',
+        component: AddPhotoComponent
       }
     ])],
   // providers: [RegisterService],
-  declarations: [AppComponent, NavBarComponent, PhotoComponent, HomeComponent, RegisterComponent, SidebarComponent, PhotoListComponent, LoginComponent],
+  declarations: [AppComponent, NavBarComponent, PhotoComponent, AddPhotoComponent, HomeComponent, RegisterComponent, SidebarComponent, PhotoListComponent, LoginComponent],
   bootstrap: [AppComponent]
 })
 
