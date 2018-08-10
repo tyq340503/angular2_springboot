@@ -5,3 +5,4 @@ npm run dev
 Start the backend, in backend folder
 
 npm start
+  // "build": "tsc -p src/",

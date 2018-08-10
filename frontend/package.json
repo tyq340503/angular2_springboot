@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "QuickStart package.json from the documentation, supplemented with testing support",
   "scripts": {
-    "build": "tsc -p src/",
+    "build": "webpack --config webpack.config.js",
+    "dev": "webpack-dev-server --config webpackServer.config.js --host 0.0.0.0 --port 3333 --devtool eval --progress --colors --hot --content-base dist",
     "build:watch": "tsc -p src/ -w",
     "build:e2e": "tsc -p e2e/",
     "serve": "lite-server -c=bs-config.json",
@@ -34,11 +35,14 @@
     "@angular/router": "~4.3.4",
     "angular-cli": "^1.0.0-beta.28.3",
     "angular-in-memory-web-api": "~0.3.0",
+    "angular2-template-loader": "^0.6.2",
+    "awesome-typescript-loader": "^5.2.0",
     "core-js": "^2.4.1",
     "jquery": "^3.3.1",
     "rxjs": "5.0.1",
     "semantic-ui": "^2.3.3",
     "systemjs": "0.19.40",
+    "ts-loader": "^4.4.2",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
@@ -57,7 +61,14 @@
     "protractor": "~4.0.14",
     "rimraf": "^2.5.4",
     "@types/node": "^6.0.46",
-    "@types/jasmine": "2.5.36"
+    "@types/jasmine": "2.5.36",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
+    "html-webpack-plugin": "^2.28.0",
+    "webpack": "~1.12.9",
+    "webpack-dev-server": "~1.14.0"
   },
   "repository": {}
 }
