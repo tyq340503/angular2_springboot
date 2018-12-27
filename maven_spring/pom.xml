@@ -8,7 +8,19 @@
   <name>maven_spring Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
-  <dependecyManagement></dependecyManagement>
+  <properties>
+       <java.version>1.7</java.version>
+       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+       <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+       <maven.compile.encoding>UTF-8</maven.compile.encoding>
+       <zookeeper.version>3.4.11</zookeeper.version>
+       <curator.version>4.0.1</curator.version>
+       <curator-test.version>2.12.0</curator-test.version>
+       <jedis.version>2.9.0</jedis.version>
+       <jackson.version>2.9.5</jackson.version>
+   </properties>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -16,7 +28,13 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>1.5.2</version>
+		</dependency>
   </dependencies>
+
   <build>
     <finalName>maven_spring</finalName>
      <plugins>
