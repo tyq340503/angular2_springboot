@@ -1,6 +1,8 @@
-package test.maven_spring;
+package test.java;
 
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -23,6 +25,18 @@ public class testRedis {
 	@Test
 	public void test3(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:app*.xml");
-		context.getBean("jedis");
+		Jedis jedis = (Jedis) context.getBean("jedis");
+		String test = jedis.get("key1");
+		System.err.println(test);
+		jedis.close();
+	}
+	
+	@Test
+	public void test4(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:app*.xml");
+		JedisInterface jedis =  context.getBean(JedisInterface.class);
+		String test = jedis.get("key1");
+		System.err.println(test);
+		jedis.close();
 	}
 }
