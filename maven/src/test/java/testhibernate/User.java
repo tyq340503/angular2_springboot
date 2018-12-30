@@ -3,6 +3,7 @@ package testhibernate;
 public class User {
 	private int id;
 	private String name;
+	private String age;
 	public int getId() {
 		return id;
 	}
@@ -21,5 +22,5 @@ public class User {
 	public void setAge(String age) {
 		this.age = age;
 	}
-	private String age;
+	
 }
