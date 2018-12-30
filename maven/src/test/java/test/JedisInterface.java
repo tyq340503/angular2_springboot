@@ -1,4 +1,4 @@
-package test.java;
+package test;
 
 public interface JedisInterface {
 	String get(String key);
