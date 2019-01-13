@@ -42,10 +42,9 @@ public class UserController {
 	}
 
 	@PostMapping("/form")
-	public ModelAndView saveOrUpdateUser(Model model) {
-		model.addAttribute("user ", new User());
-		model.addAttribute("title", "userControl");
-		return new ModelAndView("users/form", "userModel", model);
+	public ModelAndView saveOrUpdateUser(User user) {
+		userRepository.deleteUser(id);
+		return new ModelAndView("redirect:/users");
 	}
 
 	@GetMapping("/delete/{id}")
