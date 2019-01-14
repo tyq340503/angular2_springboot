@@ -2,11 +2,11 @@ package com.example.demo.repository;
 
 import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
+
 import com.example.demo.domain.User;
 
-public interface UserRepository {
-	public void addUser();
-	public void deleteUser(Long id);
-	public User getUser(Long id);
-	public List<User> getUserList();
+public interface UserRepository extends CrudRepository<User, Long>{
+
+	
 }
