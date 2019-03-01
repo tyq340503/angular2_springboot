@@ -1,4 +1,4 @@
-meta viewportÔ­Àí
+1.meta viewportÔ­Àí
 
 HTMLÖĞ£º
 
@@ -29,3 +29,82 @@ user-scalable	ÊÇ·ñÔÊĞíÓÃ»§½øĞĞËõ·Å£¬ÖµÎª¡±no¡±»ò¡±yes¡±, no ´ú±í²»ÔÊĞí£¬yes´ú±íÔ
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 
+2.HTML ÓÅ»¯
+https://juejin.im/post/59ff2dbe5188254dd935c8ab
+http://web.jobbole.com/89512/
+
+3.jsonpµÄÔ­ÀíÓëÊµÏÖ
+
+https://github.com/qianlongo/zepto-analysis/issues/4
+
+Ê×ÏÈÊÇÀûÓÃscript±êÇ©µÄsrcÊôĞÔÀ´ÊµÏÖ¿çÓò¡£
+
+Í¨¹ı½«Ç°¶Ë·½·¨×÷Îª²ÎÊı´«µİµ½·şÎñÆ÷¶Ë£¬È»ºóÓÉ·şÎñÆ÷¶Ë×¢Èë²ÎÊıÖ®ºóÔÙ·µ»Ø£¬ÊµÏÖ·şÎñÆ÷¶ËÏò¿Í»§¶ËÍ¨ĞÅ¡£
+
+ÓÉÓÚÊ¹ÓÃscript±êÇ©µÄsrcÊôĞÔ£¬Òò´ËÖ»Ö§³Öget·½·¨
+
+Ò»¸ö¼òµ¥µÄjsonpÊµÏÖ£¬ÆäÊµ¾ÍÊÇÆ´½Óurl£¬È»ºó½«¶¯Ì¬Ìí¼ÓÒ»¸öscriptÔªËØµ½Í·²¿¡£
+
+function jsonp(req){
+    var script = document.createElement('script');
+    var url = req.url + '?callback=' + req.callback.name;
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script); 
+}
+
+Ç°¶ËjsÊ¾Àı
+
+function hello(res){
+    alert('hello ' + res.data);
+}
+jsonp({
+    url : '',
+    callback : hello 
+});
+
+
+4.±Õ°üµÄ×÷ÓÃ
+https://zhuanlan.zhihu.com/p/22486908?refer=study-fe
+
+±Õ°ü³£³£ÓÃÀ´¡¸¼ä½Ó·ÃÎÊÒ»¸ö±äÁ¿¡¹¡£»»¾ä»°Ëµ£¬¡¸Òş²ØÒ»¸ö±äÁ¿¡¹¡£
+¼ÙÉèÎÒÃÇÔÚ×öÒ»¸öÓÎÏ·£¬ÔÚĞ´ÆäÖĞ¹ØÓÚ¡¸»¹Ê£¼¸ÌõÃü¡¹µÄ´úÂë¡£
+
+Èç¹û²»ÓÃ±Õ°ü£¬Äã¿ÉÒÔÖ±½ÓÓÃÒ»¸öÈ«¾Ö±äÁ¿£º
+
+window.lives = 30 // »¹ÓĞÈıÊ®ÌõÃü
+ÕâÑù¿´ÆğÀ´ºÜ²»Í×¡£ÍòÒ»²»Ğ¡ĞÄ°ÑÕâ¸öÖµ¸Ä³É -1 ÁËÔõÃ´°ì¡£ËùÒÔÎÒÃÇ²»ÄÜÈÃ±ğÈË¡¸Ö±½Ó·ÃÎÊ¡¹Õâ¸ö±äÁ¿¡£ÔõÃ´°ìÄØ£¿
+
+ÓÃ¾Ö²¿±äÁ¿¡£
+
+µ«ÊÇÓÃ¾Ö²¿±äÁ¿±ğÈËÓÖ·ÃÎÊ²»µ½£¬ÔõÃ´°ìÄØ£¿
+
+±©Â¶Ò»¸ö·ÃÎÊÆ÷£¨º¯Êı£©£¬ÈÃ±ğÈË¿ÉÒÔ¡¸¼ä½Ó·ÃÎÊ¡¹¡£
+
+´úÂëÈçÏÂ£º
+
+!function(){
+
+  var lives = 50
+
+  window.½±ÀøÒ»ÌõÃü = function(){
+    lives += 1
+  }
+
+  window.ËÀÒ»ÌõÃü = function(){
+    lives -= 1
+  }
+
+}()
+
+
+5.¿çÓò½â¾ö·½°¸
+
+1¡¢ Í¨¹ıjsonp¿çÓò
+2¡¢ document.domain + iframe¿çÓò
+3¡¢ location.hash + iframe
+4¡¢ window.name + iframe¿çÓò
+5¡¢ postMessage¿çÓò
+6¡¢ ¿çÓò×ÊÔ´¹²Ïí£¨CORS£©
+7¡¢ nginx´úÀí¿çÓò
+8¡¢ nodejsÖĞ¼ä¼ş´úÀí¿çÓò
+9¡¢ WebSocketĞ­Òé¿çÓò
