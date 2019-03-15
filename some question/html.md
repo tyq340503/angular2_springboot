@@ -348,4 +348,4 @@ https://blog.csdn.net/tennysonsky/article/details/45621341
 13. 记阿里面试的一道nodejs中http同步处理请求问题
 
 
-14. 
+14. JavaScript event bubbling (事件冒泡)& capture (事件捕獲)的處理
